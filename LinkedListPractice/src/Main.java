@@ -19,6 +19,17 @@ class DoublyLinkedList<E>{
         }
         return(next);
     }
+    public Node<E> removeLast(){
+        if (tail == null) throw new NullPointerException();
+        if (tail == head){
+            tail = null;
+            head = null;
+            return (tail);
+        }                           //  a,b,c,d
+        tail = tail.prev;           //      ^ ^
+        tail.next = null;
+        return(tail);
+    }
 
 
     public String toString(){
@@ -84,6 +95,8 @@ public class Main {
         names.add(name0);
         names.add(name1);
         names.add(name2);
+        System.out.println(names.toString());
+        names.removeLast();
         System.out.println(names.toString());
     }
 }
